@@ -11,7 +11,7 @@ export type SidebarContextProps = {
 };
 
 export const SidebarContext = React.createContext<SidebarContextProps | null>(
-  null
+  null,
 );
 
 export function useSidebar() {
