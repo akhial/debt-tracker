@@ -50,23 +50,25 @@ export function SettingsPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-white">Settings</h1>
-        <p className="text-zinc-400">Manage your account and preferences</p>
+        <h1 className="text-3xl font-bold">Settings</h1>
+        <p className="text-muted-foreground">
+          Manage your account and preferences
+        </p>
       </div>
 
       {/* Account info */}
-      <Card className="border-zinc-800 bg-zinc-800/50">
+      <Card>
         <CardHeader>
-          <CardTitle className="text-white">Account</CardTitle>
+          <CardTitle>Account</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           <div>
-            <p className="text-sm text-zinc-400">Email</p>
-            <p className="font-medium text-white">{user?.email}</p>
+            <p className="text-sm text-muted-foreground">Email</p>
+            <p className="font-medium">{user?.email}</p>
           </div>
           <div>
-            <p className="text-sm text-zinc-400">Account created</p>
-            <p className="font-medium text-white">
+            <p className="text-sm text-muted-foreground">Account created</p>
+            <p className="font-medium">
               {profile?.created_at
                 ? new Date(profile.created_at).toLocaleDateString()
                 : "Unknown"}
@@ -76,9 +78,9 @@ export function SettingsPage() {
       </Card>
 
       {/* Primary currency */}
-      <Card className="border-zinc-800 bg-zinc-800/50">
+      <Card>
         <CardHeader>
-          <CardTitle className="text-white">Primary Currency</CardTitle>
+          <CardTitle>Primary Currency</CardTitle>
           <CardDescription>
             All balances will be converted to this currency for totals and
             shadow text
@@ -101,7 +103,7 @@ export function SettingsPage() {
               )}
             </div>
           </Field>
-          <p className="mt-2 text-sm text-zinc-500">
+          <p className="mt-2 text-sm text-muted-foreground">
             Changing your primary currency will update all shadow text
             calculations. Your exchange rates are relative to this currency.
           </p>
@@ -109,9 +111,9 @@ export function SettingsPage() {
       </Card>
 
       {/* Sign out */}
-      <Card className="border-red-900/30 bg-zinc-800/50">
+      <Card className="border-destructive/30">
         <CardHeader>
-          <CardTitle className="text-white">Sign Out</CardTitle>
+          <CardTitle>Sign Out</CardTitle>
           <CardDescription>
             Log out of your account on this device
           </CardDescription>

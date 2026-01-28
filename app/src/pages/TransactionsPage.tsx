@@ -92,20 +92,20 @@ export function TransactionsPage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Transactions</h1>
-          <p className="text-zinc-400">Track debts and repayments</p>
+          <h1 className="text-3xl font-bold">Transactions</h1>
+          <p className="text-muted-foreground">Track debts and repayments</p>
         </div>
         <Button onClick={() => setShowForm(!showForm)}>
-          <Plus className="mr-2 h-4 w-4" />
+          <Plus className="mr-1 h-4 w-4" />
           Add Transaction
         </Button>
       </div>
 
       {/* Add transaction form */}
       {showForm && (
-        <Card className="border-zinc-800 bg-zinc-800/50">
+        <Card>
           <CardHeader>
-            <CardTitle className="text-white">New Transaction</CardTitle>
+            <CardTitle>New Transaction</CardTitle>
           </CardHeader>
           <CardContent>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -202,7 +202,7 @@ export function TransactionsPage() {
       )}
 
       {/* Filters */}
-      <Card className="border-zinc-800 bg-zinc-800/50">
+      <Card>
         <CardContent className="flex flex-wrap gap-4 pt-6">
           <div className="w-48">
             <Select
@@ -257,21 +257,23 @@ export function TransactionsPage() {
       </Card>
 
       {/* Transactions list */}
-      <Card className="border-zinc-800 bg-zinc-800/50">
+      <Card>
         <CardHeader>
-          <CardTitle className="text-white">
+          <CardTitle>
             Transactions ({filteredTransactions?.length ?? 0})
           </CardTitle>
         </CardHeader>
         <CardContent>
           {!filteredTransactions || filteredTransactions.length === 0 ? (
-            <p className="text-sm text-zinc-500">No transactions found</p>
+            <p className="text-sm text-muted-foreground">
+              No transactions found
+            </p>
           ) : (
             <div className="space-y-2">
               {filteredTransactions.map((tx) => (
                 <div
                   key={tx.id}
-                  className="flex items-center justify-between rounded-lg bg-zinc-700/30 p-4"
+                  className="flex items-center justify-between rounded-lg bg-muted p-4"
                 >
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
@@ -280,11 +282,9 @@ export function TransactionsPage() {
                       >
                         {tx.type}
                       </span>
-                      <span className="font-medium text-white">
-                        {tx.person.name}
-                      </span>
+                      <span className="font-medium">{tx.person.name}</span>
                     </div>
-                    <div className="mt-1 flex items-center gap-2 text-sm text-zinc-400">
+                    <div className="mt-1 flex items-center gap-2 text-sm text-muted-foreground">
                       <span>
                         {new Date(tx.incurred_date).toLocaleDateString()}
                       </span>

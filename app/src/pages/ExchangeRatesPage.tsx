@@ -75,16 +75,16 @@ export function ExchangeRatesPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-white">Exchange Rates</h1>
-        <p className="text-zinc-400">
+        <h1 className="text-3xl font-bold">Exchange Rates</h1>
+        <p className="text-muted-foreground">
           Set conversion rates to {primaryCurrency} (your primary currency)
         </p>
       </div>
 
       {/* Add new rate */}
-      <Card className="border-zinc-800 bg-zinc-800/50">
+      <Card>
         <CardHeader>
-          <CardTitle className="text-white">Add Currency Rate</CardTitle>
+          <CardTitle>Add Currency Rate</CardTitle>
           <CardDescription>
             Enter how much 1 unit of the currency equals in {primaryCurrency}
           </CardDescription>
@@ -99,7 +99,9 @@ export function ExchangeRatesPage() {
               />
             </div>
             <div className="flex items-center gap-2">
-              <span className="text-zinc-400">1 {newCurrency || "???"} =</span>
+              <span className="text-muted-foreground">
+                1 {newCurrency || "???"} =
+              </span>
               <Input
                 type="number"
                 step="0.0001"
@@ -109,13 +111,13 @@ export function ExchangeRatesPage() {
                 placeholder="0.0000"
                 className="w-32"
               />
-              <span className="text-zinc-400">{primaryCurrency}</span>
+              <span className="text-muted-foreground">{primaryCurrency}</span>
             </div>
             <Button
               onClick={handleCreate}
               disabled={!newCurrency || !newRate || createRate.isPending}
             >
-              <Plus className="mr-2 h-4 w-4" />
+              <Plus className="mr-1 h-4 w-4" />
               Add
             </Button>
           </div>
@@ -123,15 +125,13 @@ export function ExchangeRatesPage() {
       </Card>
 
       {/* Existing rates */}
-      <Card className="border-zinc-800 bg-zinc-800/50">
+      <Card>
         <CardHeader>
-          <CardTitle className="text-white">
-            Your Rates ({rates?.length ?? 0})
-          </CardTitle>
+          <CardTitle>Your Rates ({rates?.length ?? 0})</CardTitle>
         </CardHeader>
         <CardContent>
           {!rates || rates.length === 0 ? (
-            <p className="text-sm text-zinc-500">
+            <p className="text-sm text-muted-foreground">
               No exchange rates configured. Add currencies you use for debts.
             </p>
           ) : (
@@ -139,16 +139,18 @@ export function ExchangeRatesPage() {
               {rates.map((rate) => (
                 <div
                   key={rate.id}
-                  className="flex flex-wrap items-center gap-4 rounded-lg bg-zinc-700/30 p-4"
+                  className="flex flex-wrap items-center gap-4 rounded-lg bg-muted p-4"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="text-lg font-semibold text-white">
+                    <span className="text-lg font-semibold">
                       {getCurrencySymbol(rate.currency_code)}
                     </span>
-                    <span className="text-zinc-400">{rate.currency_code}</span>
+                    <span className="text-muted-foreground">
+                      {rate.currency_code}
+                    </span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <span className="text-zinc-400">
+                    <span className="text-muted-foreground">
                       1 {rate.currency_code} =
                     </span>
                     <Input
@@ -159,7 +161,9 @@ export function ExchangeRatesPage() {
                       onBlur={(e) => handleUpdate(rate.id, e.target.value)}
                       className="w-32"
                     />
-                    <span className="text-zinc-400">{primaryCurrency}</span>
+                    <span className="text-muted-foreground">
+                      {primaryCurrency}
+                    </span>
                   </div>
                   <Button
                     variant="ghost"
@@ -178,13 +182,12 @@ export function ExchangeRatesPage() {
       </Card>
 
       {/* Info card */}
-      <Card className="border-zinc-700 bg-zinc-800/30">
+      <Card>
         <CardContent className="pt-6">
-          <p className="text-sm text-zinc-400">
-            <strong className="text-zinc-300">💡 Tip:</strong> Exchange rates
-            are used for the "shadow text" feature—showing converted values in
-            your primary currency. Update rates periodically or use your own
-            fixed rates for stability.
+          <p className="text-sm text-muted-foreground">
+            <strong>💡 Tip:</strong> Exchange rates are used for the "shadow
+            text" feature—showing converted values in your primary currency.
+            Update rates periodically or use your own fixed rates for stability.
           </p>
         </CardContent>
       </Card>

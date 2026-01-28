@@ -41,38 +41,7 @@ export interface TransactionWithPerson extends Transaction {
 }
 
 // Common currency codes
-export const CURRENCY_CODES = [
-  "USD",
-  "EUR",
-  "GBP",
-  "JPY",
-  "CHF",
-  "CAD",
-  "AUD",
-  "CNY",
-  "HKD",
-  "SGD",
-  "INR",
-  "MXN",
-  "BRL",
-  "KRW",
-  "TRY",
-  "RUB",
-  "ZAR",
-  "SEK",
-  "NOK",
-  "DKK",
-  "PLN",
-  "THB",
-  "IDR",
-  "MYR",
-  "PHP",
-  "VND",
-  "AED",
-  "SAR",
-  "EGP",
-  "NZD",
-] as const;
+export const CURRENCY_CODES = ["USD", "EUR", "DZD"] as const;
 
 export type CurrencyCode = (typeof CURRENCY_CODES)[number];
 
@@ -80,34 +49,7 @@ export type CurrencyCode = (typeof CURRENCY_CODES)[number];
 export const CURRENCY_SYMBOLS: Record<string, string> = {
   USD: "$",
   EUR: "€",
-  GBP: "£",
-  JPY: "¥",
-  CHF: "CHF",
-  CAD: "C$",
-  AUD: "A$",
-  CNY: "¥",
-  HKD: "HK$",
-  SGD: "S$",
-  INR: "₹",
-  MXN: "MX$",
-  BRL: "R$",
-  KRW: "₩",
-  TRY: "₺",
-  RUB: "₽",
-  ZAR: "R",
-  SEK: "kr",
-  NOK: "kr",
-  DKK: "kr",
-  PLN: "zł",
-  THB: "฿",
-  IDR: "Rp",
-  MYR: "RM",
-  PHP: "₱",
-  VND: "₫",
-  AED: "د.إ",
-  SAR: "﷼",
-  EGP: "E£",
-  NZD: "NZ$",
+  DZD: "د.ج",
 };
 
 export function getCurrencySymbol(code: string): string {

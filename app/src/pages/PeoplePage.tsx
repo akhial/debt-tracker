@@ -62,15 +62,15 @@ export function PeoplePage() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">People</h1>
-          <p className="text-zinc-400">Manage your contacts</p>
+          <h1 className="text-3xl font-bold">People</h1>
+          <p className="text-muted-foreground">Manage your contacts</p>
         </div>
       </div>
 
       {/* Add new person */}
-      <Card className="border-zinc-800 bg-zinc-800/50">
+      <Card>
         <CardHeader>
-          <CardTitle className="text-white">Add Person</CardTitle>
+          <CardTitle>Add Person</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="flex gap-3">
@@ -85,7 +85,7 @@ export function PeoplePage() {
               onClick={handleCreate}
               disabled={!newName.trim() || createPerson.isPending}
             >
-              <Plus className="mr-2 h-4 w-4" />
+              <Plus className="mr-1 h-4 w-4" />
               Add
             </Button>
           </div>
@@ -93,15 +93,13 @@ export function PeoplePage() {
       </Card>
 
       {/* People list */}
-      <Card className="border-zinc-800 bg-zinc-800/50">
+      <Card>
         <CardHeader>
-          <CardTitle className="text-white">
-            All People ({people?.length ?? 0})
-          </CardTitle>
+          <CardTitle>All People ({people?.length ?? 0})</CardTitle>
         </CardHeader>
         <CardContent>
           {!people || people.length === 0 ? (
-            <p className="text-sm text-zinc-500">No people added yet</p>
+            <p className="text-sm text-muted-foreground">No people added yet</p>
           ) : (
             <div className="space-y-2">
               {people.map((person) => {
@@ -111,7 +109,7 @@ export function PeoplePage() {
                 return (
                   <div
                     key={person.id}
-                    className="flex items-center justify-between rounded-lg bg-zinc-700/30 p-4"
+                    className="flex items-center justify-between rounded-lg bg-muted p-4"
                   >
                     {isEditing ? (
                       <>
@@ -146,9 +144,7 @@ export function PeoplePage() {
                     ) : (
                       <>
                         <div>
-                          <p className="font-medium text-white">
-                            {person.name}
-                          </p>
+                          <p className="font-medium">{person.name}</p>
                           <p
                             className={`text-sm ${balance >= 0 ? "text-green-400" : "text-red-400"}`}
                           >

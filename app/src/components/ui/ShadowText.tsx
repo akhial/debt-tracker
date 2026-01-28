@@ -36,7 +36,7 @@ export function ShadowText({
   return (
     <div className={className}>
       {/* Main amount */}
-      <span className="font-semibold text-white">{mainText}</span>
+      <span className="font-semibold text-foreground">{mainText}</span>
 
       {/* Shadow text - only show if different from primary currency */}
       {!isPrimaryCurrency && (
@@ -77,7 +77,7 @@ export function ShadowTextInline({
 
   return (
     <span className="inline-flex flex-col">
-      <span className="font-medium text-white">
+      <span className="font-medium text-foreground">
         {sign}
         {symbol}
         {formatted}
