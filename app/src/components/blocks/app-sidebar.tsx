@@ -50,10 +50,10 @@ export function AppSidebar({
           <SidebarMenuItem>
             <SidebarMenuButton
               asChild
-              className="data-[slot=sidebar-menu-button]:!p-1.5"
+              className="data-[slot=sidebar-menu-button]:p-1.5!"
             >
               <NavLink to="/">
-                <Wallet className="!size-5" />
+                <Wallet className="size-5!" />
                 <span className="text-base font-semibold">Debt Tracker</span>
               </NavLink>
             </SidebarMenuButton>
